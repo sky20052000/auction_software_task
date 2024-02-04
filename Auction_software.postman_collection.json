@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "110bf5f1-46e5-435d-8a7f-831f216a2a2b",
+		"name": "Auction_software",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17695013"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n         \"username\":\"testyyy\",\r\n        \"email\":\"testyyy@gmail.com\",\r\n        \"password\":\"Test@123\",\r\n        \"userrole\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/user/create"
+					},
+					"response": []
+				},
+				{
+					"name": "login_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n         \"username\":\"testy\",\r\n        \"email\":\"testy@gmail.com\",\r\n        \"password\":\"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/user/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "add_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0eSIsImVtYWlsIjoidGVzdHlAZ21haWwuY29tIiwidXNlcnJvbGUiOiIxIiwiaWF0IjoxNzA3MDYxNDIyLCJleHAiOjE3MDc2NjYyMjJ9.hXVZKyQ2xS6c4D8aHhH2PAuGlVOAp9Hn_uIwudTq3bo"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"product_name\":\"Wrogn  shirt \",\r\n      \"product_title\":\"slim fit\",\r\n      \"product_category\":\"clothes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/product/add_product"
+					},
+					"response": []
+				},
+				{
+					"name": "getProductListWithPagination",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0eSIsImVtYWlsIjoidGVzdHlAZ21haWwuY29tIiwidXNlcnJvbGUiOiIxIiwiaWF0IjoxNzA3MDU0OTcxLCJleHAiOjE3MDc2NTk3NzF9.iYZYYexT-TtksMnE8e3uUYkssC4uAx7xApeYubjK64g"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"sortdirection\":\"DESC\",\r\n        \"pageNumber\":1, \r\n        \"pageSize\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/product/get_product"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
