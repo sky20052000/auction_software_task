@@ -1,3 +1,4 @@
+const { getProductDetail } = require("../controller/productController");
 const db = require("../database/connection");
 const util = require("util");
 
@@ -45,6 +46,33 @@ const Product = {
       return res.status(500).send({ status: false, message: err.message });
     }
 },
+
+updateProduct: async (data, res) => {
+  try {
+    //console.log("Update products Set product_name='"+data.product_name+"', created_By='"+data.created_By+"', product_title='"+data.product_title+"', product_category='"+data.product_category+"', updatedAt='"+data.updatedAt+"' WHERE product_id ="+data.product_id+" ","bbbb" )
+    return await Query("Update products Set product_name='"+data.product_name+"', created_By='"+data.created_By+"', product_title='"+data.product_title+"', product_category='"+data.product_category+"', updatedAt='"+data.updatedAt+"' WHERE product_id ="+data.product_id+" " ,[]);
+  } catch (err) {
+    //console.log(err,"rrr")
+    return res.status(500).send({ status: false, message: err.message });
+  }
+},
+
+getDetail: async (id,res) => {
+  try {
+    return await Query("Select * from products where product_id='"+id+" '",[]);
+  } catch (err) {
+    return res.status(500).send({ status: false, message: err.message });
+  }
+},
+
+deleteProduct: async (id,res) => {
+  try {
+    return await Query("Delete from products where product_id='"+id+" '",[]);
+  } catch (err) {
+    return res.status(500).send({ status: false, message: err.message });
+  }
+},
+
    
 
 };
